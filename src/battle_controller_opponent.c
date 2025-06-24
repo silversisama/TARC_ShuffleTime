@@ -13,6 +13,7 @@
 #include "battle_tv.h"
 #include "battle_z_move.h"
 #include "bg.h"
+#include "card_effect.h"
 #include "data.h"
 #include "frontier_util.h"
 #include "item.h"
@@ -595,7 +596,14 @@ static void OpponentHandleChooseMove(u32 battler)
             move = moveInfo->moves[chosenMoveId];
         } while (move == MOVE_NONE);
 
-        if (GetBattlerMoveTargetType(battler, move) & MOVE_TARGET_USER)
+        // Death card effect:
+        // Wild Pokémon will run from battle
+        if (!IsDoubleBattle() && IsCardEffectDeathEnabled())
+        {
+            CardEffectDeathDisable();
+            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_RUN, 0);
+        }
+        else if (GetBattlerMoveTargetType(battler, move) & MOVE_TARGET_USER)
             BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, (chosenMoveId) | (battler << 8));
         else if (IsDoubleBattle())
         {
