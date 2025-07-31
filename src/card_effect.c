@@ -9,6 +9,7 @@
 #include "shuffle_time.h"
 #include "string_util.h"
 #include "strings.h"
+#include "sword_tokens.h"
 #include "task.h"
 #include "text.h"
 #include "window.h"
@@ -258,7 +259,7 @@ static const u8 sText_SuitCoins[]        = _("S.Coins");
 static const u8 sText_SuitCups[]         = _("S.Cups");
 static const u8 sText_SuitSwords[]       = _("S.Swords");
 static const u8 sText_SuitWands[]        = _("S.Wands");
-static const u8 sText_NothingHappened[]  = _("Nothing happened...");
+static const u8 sText_SwordTokens[]      = _("Sword Tokens");
 
 static const struct WindowTemplate sAbilityItemWindowTemplate =
 {
@@ -561,8 +562,15 @@ static void sCardEffectSun(u8 rank)
 static void sCardEffectSwords(u8 rank)
 {
     // Grants points for TMs.
-    // TODO: Implement the card effect
-    ShuffleTimeDisplayMessage(sText_NothingHappened);
+    // The amount of tokens to add is 2^rank
+    const u16 amount = 1 << rank;
+    AddSwordTokens(amount);
+
+    ConvertIntToDecimalStringN(gStringVar1, amount, STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gStringVar1, gText_Space);
+    StringAppend(gStringVar1, sText_SwordTokens);
+    StringExpandPlaceholders(gStringVar4, sText_Receive);
+    ShuffleTimeDisplayMessage(gStringVar4);
 }
 
 static void sCardEffectTemperance(u8 rank)
