@@ -600,7 +600,11 @@ extern const u8 gText_WhichPokemon[];
 extern const u8 gText_TutorPhysical[];
 extern const u8 gText_TutorSpecial[];
 extern const u8 gText_TutorStatus[];
-
+extern const u8 gText_ST[];
+extern const u8 gText_YouDontHaveST[];
+extern const u8 gText_YouWantedVar1ThatllBeVar2_ST[];
+extern const u8 gText_Var1AndYouWantedVar2_ST[];
+extern const u8 gText_YouWantedVar1ThatllBeVar2_STMove[];
 // Battle Frontier Exchange Corner
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_KissPosterDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_KissCushionDesc[];
