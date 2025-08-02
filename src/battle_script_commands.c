@@ -47,6 +47,7 @@
 #include "data.h"
 #include "generational_changes.h"
 #include "move.h"
+#include "card_effect.h"
 #include "constants/abilities.h"
 #include "constants/battle_anim.h"
 #include "constants/battle_move_effects.h"
@@ -8889,6 +8890,7 @@ static void Cmd_getmoneyreward(void)
         money = GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentA);
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             money += GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentB);
+        ApplyCardEffects_OnMoneyReward(&money);
         AddMoney(&gSaveBlock1Ptr->money, money);
     }
     else

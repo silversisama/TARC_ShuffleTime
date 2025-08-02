@@ -10,6 +10,7 @@
 #include "battle_setup.h"
 #include "battle_z_move.h"
 #include "battle_terastal.h"
+#include "card_effect.h"
 #include "data.h"
 #include "debug.h"
 #include "event_data.h"
@@ -175,6 +176,15 @@ static u64 GetWildAiFlags(void)
 
     if (B_VAR_WILD_AI_FLAGS != 0 && VarGet(B_VAR_WILD_AI_FLAGS) != 0)
         flags |= VarGet(B_VAR_WILD_AI_FLAGS);
+
+    if (!IsDoubleBattle() && IsCardEffectDeathEnabled())
+    {
+        CardEffectDeathDisable();
+        // Set battle type as roamer to allow the wild POKéMON to flee
+        gBattleTypeFlags |= BATTLE_TYPE_ROAMER;
+        // Enable roaming AI behavior
+        flags |= AI_FLAG_ROAMING;
+    }
 
     return flags;
 }
