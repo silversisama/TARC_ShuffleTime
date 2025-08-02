@@ -20,6 +20,12 @@
 #define I_PREMIER_BALL_BONUS            GEN_LATEST  // In LGPE onwards (Gen8+ here), you are given a Premier Ball for every 10 Poké Balls of any type and in the same purchase. Previously, it only applied to regular Poké Balls and only 1 could be obtained per purchase.
 #define I_ROTOM_CATALOG_THUNDER_SHOCK   GEN_LATEST  // In Gen9+, reverting Rotom to its base form will teach it Thunder Shock even if it knows another move.
 #define I_REPEL_INCLUDE_FAINTED         GEN_LATEST  // In Gen1 and Gen6+, Repels always use the level of the first member of the party to check which wild Pokémon to prevent encounters with, even if that member is fainted. In Gen2-5, it only uses the level of the first non-fainted Pokémon.
+#define I_PRICE_BP                      GEN_7       // Some purchasable BP items have varied in value across generations.
+                                                        // As a general rule, Gens 3, 4, 6, and 7 have similar prices, with most prices going down the newer the generation.
+                                                        // Gen 5 prices are based on Black 2 and White 2, where many items received around 50% discounts.
+                                                        // In Gen 8, many of the prices were adjusted and many items received 0-80% discounts.
+                                                        // Gen 9 jacked up some of the prices to ludicrous degrees, and generally isn't recommended without heavily editing the BP gains.
+#define I_MOVE_TUTOR_INFO_BOX           TRUE        // Shows a box with battle move info when using the move tutor mart.
 
 // TM config
 #define I_REUSABLE_TMS          TRUE       // In Gen5-8, TMs are reusable. Setting this to TRUE will make all vanilla TMs reusable, though they can also be cherry-picked by setting their importance to 1.

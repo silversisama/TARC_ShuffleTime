@@ -3246,3 +3246,16 @@ void Script_EndTrainerCanSeeIf(struct ScriptContext *ctx)
     if (ctx->breakOnTrainerBattle && sScriptConditionTable[condition][ctx->comparisonResult] == 1)
         StopScript(ctx);
 }
+
+bool8 ScrCmd_bpmart(struct ScriptContext *ctx)
+{
+    const void *ptr = (void *)ScriptReadWord(ctx);
+    u8 isMoveTutor = VarGet(ScriptReadHalfword(ctx));
+
+    if(isMoveTutor == TRUE)
+        CreateBPmartMoveTutor(ptr);
+    else
+        CreateBPmartMenu(ptr);;
+    ScriptContext_Stop();
+    return TRUE;
+}

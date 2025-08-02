@@ -1889,6 +1889,17 @@
 	_dynmultichoice \left, \top, \ignoreBPress, \maxBeforeScroll, \shouldSort, \initialSelected, \callbacks, NULL
 	.endm
 
+	@ Opens the Pokemart system, offering the specified products for sale.
+	@ Products should be a list of .2byte item values preceded by an .align 2
+	@ Uses BP as currency, with the prices based on the .bpCost value
+	@ in src/data/items.h for items or src/data/moves_info.h for moves.
+	@ If 'isMoveTutor' is set to TRUE, the mart will work similar to a move tutor instead.
+	.macro bpmart products:req, isMoveTutor:req
+	.byte 0xe5
+	.4byte \products
+	.2byte \isMoveTutor
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req
