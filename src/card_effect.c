@@ -339,12 +339,12 @@ static void sCardEffectGiveItem(u16 itemId, u16 count)
     if (TryAddItem(itemId, count))
     {
         if (count == 1)
-            StringCopy(gStringVar1, ItemId_GetName(itemId));
+            StringCopy(gStringVar1, GetItemName(itemId));
         else
         {
             ConvertIntToDecimalStringN(gStringVar1, count, STR_CONV_MODE_LEFT_ALIGN, 2);
             StringAppend(gStringVar1, gText_Space);
-            StringAppend(gStringVar1, ItemId_GetName(itemId));
+            StringAppend(gStringVar1, GetItemName(itemId));
         }
         StringExpandPlaceholders(gStringVar4, sText_Receive);
         ShuffleTimeDisplayMessage(gStringVar4);
@@ -640,14 +640,14 @@ static void sCardEffectWorld(u8 rank)
     {
         ConvertIntToDecimalStringN(gStringVar1, 3, STR_CONV_MODE_LEFT_ALIGN, 1);
         StringAppend(gStringVar1, gText_Space);
-        StringAppend(gStringVar1, ItemId_GetName(ITEM_FULL_RESTORE));
+        StringAppend(gStringVar1, GetItemName(ITEM_FULL_RESTORE));
     }
 
     if (gotElixir)
     {
         ConvertIntToDecimalStringN(gStringVar2, 2, STR_CONV_MODE_LEFT_ALIGN, 1);
         StringAppend(gStringVar2, gText_Space);
-        StringAppend(gStringVar2, ItemId_GetName(ITEM_ELIXIR));
+        StringAppend(gStringVar2, GetItemName(ITEM_ELIXIR));
     }
 
     if (gotFullRestore && gotElixir)

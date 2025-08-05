@@ -1159,3 +1159,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/scripts/dexnav.inc"
 
 	.include "data/maps/TARCMAP/scripts.inc"
+
+	.include "data/maps/TARCMAP2/scripts.inc"
+
+	.include "data/maps/TARCMAP3/scripts.inc"

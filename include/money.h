@@ -31,5 +31,6 @@ void RemoveMoneyLabelObject(void);
 u32 CalculateMoneyTextHorizontalPosition(u32 amount);
 void PrintBpAmount(u8 windowId, u8 x, u8 y, int amount, u8 speed);
 void PrintBpBoxWithBorder(u8 windowId, u16 tileStart, u8 pallete, int amount);
-
+void PrintSTAmount(u8 windowId, u8 x, u8 y, u32 amount, u8 speed);
+void PrintSTBoxWithBorder(u8 windowId, u16 tileStart, u8 pallete, u32 amount);
 #endif // GUARD_MONEY_H

@@ -42,6 +42,8 @@
 #include "constants/songs.h"
 #include "constants/party_menu.h"
 #include "event_data.h"
+#include "sword_tokens.h"
+
 
 #define TAG_SCROLL_ARROW   2100
 #define TAG_ITEM_ICON_BASE 9110 // immune to time blending
@@ -894,7 +896,7 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
         else
         {
             if (MARTBP || MARTMOVE)
-                StringCopy(ConvertIntToDecimalStringN(gStringVar4, ItemId_GetBpPrice(itemId), STR_CONV_MODE_RIGHT_ALIGN, 4), gText_BP);
+                StringCopy(ConvertIntToDecimalStringN(gStringVar4, ItemId_GetBpPrice(itemId), STR_CONV_MODE_RIGHT_ALIGN, 4), gText_ST);
             else
                 StringExpandPlaceholders(gStringVar4, gText_PokedollarVar1);
         }
@@ -1066,7 +1068,7 @@ static void BuyMenuDrawGraphics(void)
     BuyMenuDrawMapGraphics();
     BuyMenuCopyMenuBgToBg1TilemapBuffer();
     if (MARTBP || MARTMOVE)
-        PrintBpBoxWithBorder(WIN_BP, 1, 13, gSaveBlock2Ptr->frontier.battlePoints);
+        PrintSTBoxWithBorder(WIN_BP, 1, 13, GetSwordTokens());
     else
     {
         AddMoneyLabelObject(19, 11);
@@ -1308,9 +1310,9 @@ static void Task_BuyMenu(u8 taskId)
             {
                 BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
             }
-            else if ((MARTBP || MARTMOVE) && (gSaveBlock2Ptr->frontier.battlePoints < sShopData->totalCost))
+            else if ((MARTBP || MARTMOVE) && (GetSwordTokens() < sShopData->totalCost))
             {
-                BuyMenuDisplayMessage(taskId, gText_YouDontHaveBp, BuyMenuReturnToItemList);
+                BuyMenuDisplayMessage(taskId, gText_YouDontHaveST, BuyMenuReturnToItemList);
             }
             else
             {
@@ -1338,10 +1340,10 @@ static void Task_BuyMenu(u8 taskId)
                 else if (MARTBP)
                 { 
                     CopyItemName(itemId, gStringVar1);
-                    if (ItemId_GetImportance(itemId) || !(gSaveBlock2Ptr->frontier.battlePoints >= (sShopData->totalCost * 2)))
+                    if (GetItemImportance(itemId) || !(gSaveBlock2Ptr->frontier.battlePoints >= (sShopData->totalCost * 2)))
                     {
                         ConvertIntToDecimalStringN(gStringVar2, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
-                        StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1ThatllBeVar2_Bp);
+                        StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1ThatllBeVar2_ST);
                         tItemCount = 1;
                         sShopData->totalCost = ItemId_GetBpPrice(tItemId) * tItemCount;
                         BuyMenuDisplayMessage(taskId, gStringVar4, BuyMenuConfirmPurchase);
@@ -1363,7 +1365,7 @@ static void Task_BuyMenu(u8 taskId)
                     StringCopy(gStringVar1, gMovesInfo[itemId].name);
                     gSpecialVar_0x8005 = itemId;
                     ConvertIntToDecimalStringN(gStringVar2, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
-                    StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1ThatllBeVar2_BpMove);
+                    StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1ThatllBeVar2_STMove);
                     tItemCount = 1;
                     sShopData->totalCost = ItemId_GetBpPrice(tItemId) * tItemCount;
                     gSpecialVar_0x8008 = sShopData->totalCost;
@@ -1446,7 +1448,7 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
             ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, MAX_ITEM_DIGITS);
             ConvertIntToDecimalStringN(gStringVar3, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, MAX_MONEY_DIGITS);
             if (MARTBP)
-                BuyMenuDisplayMessage(taskId, gText_Var1AndYouWantedVar2_Bp, BuyMenuConfirmPurchase);
+                BuyMenuDisplayMessage(taskId, gText_Var1AndYouWantedVar2_ST, BuyMenuConfirmPurchase);
             else
                 BuyMenuDisplayMessage(taskId, gText_Var1AndYouWantedVar2, BuyMenuConfirmPurchase);
         }
@@ -1512,10 +1514,9 @@ static void BuyMenuSubtractMoney(u8 taskId)
     PlaySE(SE_SHOP);
     if (MARTBP)
     {
-        gSaveBlock2Ptr->frontier.battlePoints -= sShopData->totalCost;
-        if (gSaveBlock2Ptr->frontier.battlePoints < 0)
-            gSaveBlock2Ptr->frontier.battlePoints = 0;
-        PrintBpBoxWithBorder(WIN_BP, 1, 13, gSaveBlock2Ptr->frontier.battlePoints);
+        if(!RemoveSwordTokens(sShopData->totalCost))
+            SetSwordTokens(0);
+        PrintSTBoxWithBorder(WIN_BP, 1, 13, GetSwordTokens());
     }
     else
     {

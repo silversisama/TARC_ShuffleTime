@@ -646,9 +646,3 @@ void StartNewPokeballCaseUI(void)
     FadeScreen(FADE_TO_BLACK, 0);
     CreateTask(Task_OpenBirchCase, 0);
 }
-
-void StartNewPokeballCaseUI(void)
-{
-    FadeScreen(FADE_TO_BLACK, 0);
-    CreateTask(Task_OpenBirchCase, 0);
-}

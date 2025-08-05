@@ -1,0 +1,45 @@
+{
+  "id": "MAP_TARCMAP2",
+  "name": "TARCMAP2",
+  "layout": "LAYOUT_TARCMAP2",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 2,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_TARCMAP",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 3,
+      "y": 2,
+      "elevation": 0,
+      "item": "ITEM_PRISON_BOTTLE",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 1,
+      "y": 6,
+      "elevation": 0,
+      "item": "ITEM_FULL_RESTORE",
+      "flag": "FLAG_TEMP_1"
+    }
+  ]
+}

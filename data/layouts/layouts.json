@@ -4420,6 +4420,26 @@
       "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/TARCMAP/border.bin",
       "blockdata_filepath": "data/layouts/TARCMAP/map.bin"
+    },
+    {
+      "id": "LAYOUT_TARCMAP2",
+      "name": "TARCMAP2_Layout",
+      "width": 5,
+      "height": 7,
+      "primary_tileset": "gTileset_TARC",
+      "secondary_tileset": "gTileset_Unused1",
+      "border_filepath": "data/layouts/TARCMAP2/border.bin",
+      "blockdata_filepath": "data/layouts/TARCMAP2/map.bin"
+    },
+    {
+      "id": "LAYOUT_TARCMAP3",
+      "name": "TARCMAP3_Layout",
+      "width": 5,
+      "height": 7,
+      "primary_tileset": "gTileset_TARC",
+      "secondary_tileset": "gTileset_Unused1",
+      "border_filepath": "data/layouts/TARCMAP3/border.bin",
+      "blockdata_filepath": "data/layouts/TARCMAP3/map.bin"
     }
   ]
 }

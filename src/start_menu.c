@@ -69,7 +69,6 @@ enum
     MENU_ACTION_PYRAMID_BAG,
     MENU_ACTION_DEBUG,
     MENU_ACTION_DEXNAV,
-    MENU_ACTION_SHUFFLE_TIME,
 };
 
 // Save status
@@ -207,8 +206,7 @@ static const struct MenuAction sStartMenuItems[] =
     [MENU_ACTION_RETIRE_FRONTIER] = {gText_MenuRetire,  {.u8_void = StartMenuBattlePyramidRetireCallback}},
     [MENU_ACTION_PYRAMID_BAG]     = {gText_MenuBag,     {.u8_void = StartMenuBattlePyramidBagCallback}},
     [MENU_ACTION_DEBUG]           = {sText_MenuDebug,   {.u8_void = StartMenuDebugCallback}},
-    [MENU_ACTION_DEXNAV]          = {gText_MenuDexNav,  {.u8_void = StartMenuDexNavCallback}},
-    [MENU_ACTION_SHUFFLE_TIME]    = {sText_MenuDebug,   {.u8_void = StartMenuShuffleTimeCallback}},
+    [MENU_ACTION_DEXNAV]          = {gText_MenuDexNav,  {.u8_void = StartMenuDebugCallback}},
 };
 
 static const struct BgTemplate sBgTemplates_LinkBattleSave[] =
@@ -348,7 +346,6 @@ static void BuildNormalStartMenu(void)
     if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKENAV);
 
-    AddStartMenuAction(MENU_ACTION_SHUFFLE_TIME);
     AddStartMenuAction(MENU_ACTION_PLAYER);
     AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
@@ -1497,17 +1494,8 @@ void AppendToList(u8 *list, u8 *pos, u8 newEntry)
     (*pos)++;
 }
 
-static bool8 StartMenuDexNavCallback(void)
-{
-    CreateTask(Task_OpenShuffleTime, 0);
-    return TRUE;
-}
 
-static bool8 StartMenuShuffleTimeCallback(void)
-{
-    CreateTask(Task_OpenShuffleTime, 0);
-    return TRUE;
-}
+
 
 void Script_ForceSaveGame(struct ScriptContext *ctx)
 {

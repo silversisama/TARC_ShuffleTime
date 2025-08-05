@@ -53,6 +53,7 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 #include "wild_encounter.h"
+#include "shuffle_time.h"
 
 enum {
     TRANSITION_TYPE_NORMAL,
@@ -293,6 +294,11 @@ static void Task_BattleStart_Debug(u8 taskId)
         }
         break;
     }
+}
+
+void CB_OpenMiniGame(void)
+{
+  CreateTask(Task_OpenShuffleTime, 0);
 }
 
 static void CreateBattleStartTask_Debug(u8 transition, u16 song)
@@ -1312,11 +1318,23 @@ static void CB2_EndTrainerBattle(void)
     }
     else if (DidPlayerForfeitNormalTrainerBattle())
     {
-            SetMainCallback2(CB2_WhiteOut);
+            SetMainCallback2(CB2_WhiteOut);        
     }
+    
     else
     {
-        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        if (SHUFFLE_TIME_ENABLED)
+        {
+            if (Random32() % 100 < SHUFFLE_TIME_ODDS)
+                SetMainCallback2(CB_OpenMiniGame);
+            else
+                SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        }
+        else
+        {
+            SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        }
+
         DowngradeBadPoison();
         if (!InBattlePyramid() && !InTrainerHillChallenge())
         {

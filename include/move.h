@@ -72,6 +72,7 @@ struct MoveInfo
     u16 category:2;
     u16 power:9;    // up to 511
     // end of word
+    u16 bpCost;
     u16 accuracy:7;
     u16 target:9;
     u8 pp;

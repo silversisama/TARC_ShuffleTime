@@ -551,10 +551,10 @@ static void OpponentHandleChooseMove(u32 battler)
         if (!IsDoubleBattle() && IsCardEffectDeathEnabled())
         {
             CardEffectDeathDisable();
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_RUN, 0);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_RUN, 0);
         }
         else if (GetBattlerMoveTargetType(battler, move) & MOVE_TARGET_USER)
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, (chosenMoveId) | (battler << 8));
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, 10, (chosenMoveIndex) | (battler << 8));
         else if (IsDoubleBattle())
         {
             do {

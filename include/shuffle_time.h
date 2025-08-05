@@ -3,6 +3,10 @@
 
 #include "main.h"
 
+#define SHUFFLE_TIME_ENABLED    TRUE
+#define SHUFFLE_TIME_ODDS       100
+
+
 void Task_OpenShuffleTime(u8 taskId);
 void ShuffleTimeExtraDraws(u8 count);
 void ShuffleTimeDisplayMessage(const u8 *src);
