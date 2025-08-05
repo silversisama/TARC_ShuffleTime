@@ -731,6 +731,20 @@ void Task_OpenShuffleTime(u8 taskId)
     }
 }
 
+static void CB2_OpenShuffleTime(void)
+{
+    // Temporary callback to initialize the minigame.
+    // Runs tasks and handles palette fade during screen transition.
+    RunTasks();
+    UpdatePaletteFade();
+}
+
+void CB2_OpenShuffleTimeFromEndBattle(void)
+{
+    CreateTask(Task_OpenShuffleTime, 0);
+    SetMainCallback2(CB2_OpenShuffleTime);
+}
+
 static void Task_ShuffleTimeWaitFadeIn(u8 taskId)
 {
     if (!gPaletteFade.active)

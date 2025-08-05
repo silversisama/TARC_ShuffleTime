@@ -296,11 +296,6 @@ static void Task_BattleStart_Debug(u8 taskId)
     }
 }
 
-void CB_OpenMiniGame(void)
-{
-  CreateTask(Task_OpenShuffleTime, 0);
-}
-
 static void CreateBattleStartTask_Debug(u8 transition, u16 song)
 {
     u8 taskId = CreateTask(Task_BattleStart_Debug, 1);
@@ -1326,7 +1321,7 @@ static void CB2_EndTrainerBattle(void)
         if (SHUFFLE_TIME_ENABLED)
         {
             if (Random32() % 100 < SHUFFLE_TIME_ODDS)
-                SetMainCallback2(CB_OpenMiniGame);
+                SetMainCallback2(CB2_OpenShuffleTimeFromEndBattle);
             else
                 SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         }

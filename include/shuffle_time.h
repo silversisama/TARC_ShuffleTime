@@ -8,6 +8,8 @@
 
 
 void Task_OpenShuffleTime(u8 taskId);
+void CB2_OpenShuffleTimeFromEndBattle(void);
+
 void ShuffleTimeExtraDraws(u8 count);
 void ShuffleTimeDisplayMessage(const u8 *src);
 void ShuffleTimeMorphCard(u8 targetCardId);
