@@ -244,6 +244,7 @@ static void MainMenu_FormatSavegamePokedex(void);
 static void MainMenu_FormatSavegameTime(void);
 static void MainMenu_FormatSavegameBadges(void);
 static void NewGameBirchSpeech_CreateDialogueWindowBorder(u8, u8, u8, u8, u8, u8);
+static void Task_NewGameBirchSpeech_Intro(u8);
 
 // .rodata
 
@@ -255,6 +256,13 @@ static const u16 sBirchSpeechBgPals[][16] = {
 static const u32 sBirchSpeechShadowGfx[] = INCBIN_U32("graphics/birch_speech/shadow.4bpp.lz");
 static const u32 sBirchSpeechBgMap[] = INCBIN_U32("graphics/birch_speech/map.bin.lz");
 static const u16 sBirchSpeechBgGradientPal[] = INCBIN_U16("graphics/birch_speech/bg2.gbapal");
+
+static const u32 sSpeechIntro1Gfx[] = INCBIN_U32("graphics/speech/intro1.4bpp.lz");
+static const u32 sSpeechIntro2Gfx[] = INCBIN_U32("graphics/speech/intro2.4bpp.lz");
+static const u32 sSpeechIntro3Gfx[] = INCBIN_U32("graphics/speech/intro3.4bpp.lz");
+static const u32 sSpeechIntro4Gfx[] = INCBIN_U32("graphics/speech/intro4.4bpp.lz");
+static const u32 sSpeechIntroTilemap[] = INCBIN_U32("graphics/speech/intro.bin.lz");
+static const u8 sSpeechIntroPal[] = INCBIN_U8("graphics/speech/intro.gbapal");
 
 static const u8 gText_SaveFileCorrupted[] = _("The save file is corrupted. The\nprevious save file will be loaded.");
 static const u8 gText_SaveFileErased[] = _("The save file has been erased\ndue to corruption or damage.");
@@ -458,6 +466,14 @@ static const struct BgTemplate sBirchBgTemplate = {
     .paletteMode = 0,
     .priority = 0,
     .baseTile = 0
+};
+
+static const struct BgTemplate sSpeechBgTemplate = {
+    .bg = 0,
+    .charBaseIndex = 0,
+    .mapBaseIndex = 10,
+    .priority = 0,
+    .baseTile = 0,
 };
 
 static const struct ScrollArrowsTemplate sScrollArrowsTemplate_MainMenu = {2, 0x78, 8, 3, 0x78, 0x98, 3, 4, 1, 1, 0};
@@ -1079,7 +1095,7 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
             default:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
                 gPlttBufferFaded[0] = RGB_BLACK;
-                gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+                gTasks[taskId].func = Task_NewGameBirchSpeech_Intro;
                 break;
             case ACTION_CONTINUE:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
@@ -1282,11 +1298,74 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
 #define tBrendanSpriteId data[10]
 #define tMaySpriteId data[11]
 
+static void Task_NewGameBirchSpeech_Intro(u8 taskId)
+{
+    switch(gTasks[taskId].data[3])
+    {
+    case 0:
+        SetGpuReg(REG_OFFSET_DISPCNT, 0);
+        SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
+
+        InitBgFromTemplate(&sSpeechBgTemplate);
+
+        SetGpuReg(REG_OFFSET_WIN0H, 0);
+        SetGpuReg(REG_OFFSET_WIN0V, 0);
+        SetGpuReg(REG_OFFSET_WININ, 0);
+        SetGpuReg(REG_OFFSET_WINOUT, 0);
+        SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+        SetGpuReg(REG_OFFSET_BLDY, 0);
+
+        CpuFill16(0, (void*)VRAM, VRAM_SIZE);
+        LZ77UnCompVram(sSpeechIntroTilemap, (void *)(BG_SCREEN_ADDR(10)));
+        LoadPalette(sSpeechIntroPal, BG_PLTT_ID(0), PLTT_SIZEOF(16));
+
+        ShowBg(0);
+        gTasks[taskId].data[3]++;
+        break;
+    case 1:
+        LZ77UnCompVram(sSpeechIntro1Gfx, (void *)VRAM);
+        gTasks[taskId].data[3]++;
+        break;
+    case 2:
+        if (JOY_NEW(A_BUTTON | B_BUTTON))
+            gTasks[taskId].data[3]++;
+        break;
+    case 3:
+        LZ77UnCompVram(sSpeechIntro2Gfx, (void *)VRAM);
+        gTasks[taskId].data[3]++;
+        break;
+    case 4:
+        if (JOY_NEW(A_BUTTON | B_BUTTON))
+            gTasks[taskId].data[3]++;
+        break;
+    case 5:
+        LZ77UnCompVram(sSpeechIntro3Gfx, (void *)VRAM);
+        gTasks[taskId].data[3]++;
+        break;
+    case 6:
+        if (JOY_NEW(A_BUTTON | B_BUTTON))
+            gTasks[taskId].data[3]++;
+        break;
+    case 7:
+        LZ77UnCompVram(sSpeechIntro4Gfx, (void *)VRAM);
+        gTasks[taskId].data[3]++;
+        break;
+    case 8:
+        if (JOY_NEW(A_BUTTON | B_BUTTON))
+            gTasks[taskId].data[3]++;
+        break;
+    default:
+        gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+        break;
+    }
+}
+
 static void Task_NewGameBirchSpeech_Init(u8 taskId)
 {
     SetGpuReg(REG_OFFSET_DISPCNT, 0);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
-    //InitBgFromTemplate(&sBirchBgTemplate);
+    InitBgFromTemplate(&sBirchBgTemplate);
     SetGpuReg(REG_OFFSET_WIN0H, 0);
     SetGpuReg(REG_OFFSET_WIN0V, 0);
     SetGpuReg(REG_OFFSET_WININ, 0);
@@ -1294,25 +1373,37 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     SetGpuReg(REG_OFFSET_BLDCNT, 0);
     SetGpuReg(REG_OFFSET_BLDALPHA, 0);
     SetGpuReg(REG_OFFSET_BLDY, 0);
-    gTasks[taskId].tPlayerGender = MALE;
-    NewGameBirchSpeech_SetDefaultPlayerName(Random() % NUM_PRESET_NAMES);
 
+    LZ77UnCompVram(sBirchSpeechShadowGfx, (void *)VRAM);
+    LZ77UnCompVram(sBirchSpeechBgMap, (void *)(BG_SCREEN_ADDR(7)));
+    LoadPalette(sBirchSpeechBgPals, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+    LoadPalette(&sBirchSpeechBgGradientPal[8], BG_PLTT_ID(0) + 1, PLTT_SIZEOF(8));
 
-    //LZ77UnCompVram(sBirchSpeechShadowGfx, (void *)VRAM);
-    //LZ77UnCompVram(sBirchSpeechBgMap, (void *)(BG_SCREEN_ADDR(7)));
-    //LoadPalette(sBirchSpeechBgPals, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
-    //LoadPalette(&sBirchSpeechBgGradientPal[8], BG_PLTT_ID(0) + 1, PLTT_SIZEOF(8));
     ScanlineEffect_Stop();
     ResetSpriteData();
     FreeAllSpritePalettes();
     ResetAllPicSprites();
-    //AddBirchSpeechObjects(taskId);
-    //BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
+    AddBirchSpeechObjects(taskId);
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
     gTasks[taskId].tBG1HOFS = 0;
-    gTasks[taskId].func = Task_NewGameBirchSpeech_FadePlayerToWhite;
+    gTasks[taskId].func = Task_NewGameBirchSpeech_StartPlayerFadeIn;
     gTasks[taskId].tPlayerSpriteId = SPRITE_NONE;
     gTasks[taskId].data[3] = 0xFF;
     gTasks[taskId].tTimer = 0x0;
+
+    // Offset platform
+    gTasks[taskId].tBG1HOFS = -60;
+    SetGpuReg(REG_OFFSET_BG1HOFS, gTasks[taskId].tBG1HOFS);
+    // No wait for previous sprites
+    gTasks[taskId].tIsDoneFadingSprites = TRUE;
+    // Init windows and related gfx
+    InitWindows(sNewGameBirchSpeechTextWindows);
+    LoadMainMenuWindowFrameTiles(0, 0xF3);
+    LoadMessageBoxGfx(0, BIRCH_DLG_BASE_TILE_NUM, BG_PLTT_ID(15));
+    NewGameBirchSpeech_ShowDialogueWindow(0, 1);
+    PutWindowTilemap(0);
+    CopyWindowToVram(0, COPYWIN_GFX);
+
     //PlayBGM(MUS_ROUTE122);
     ShowBg(0);
     ShowBg(1);
@@ -1655,7 +1746,7 @@ static void Task_NewGameBirchSpeech_ProcessNameYesNoMenu(u8 taskId)
             gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
             NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 2);
             NewGameBirchSpeech_StartFadePlatformIn(taskId, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_SlidePlatformAway2;
+            gTasks[taskId].func = Task_NewGameBirchSpeech_FadePlayerToWhite;
             break;
         case MENU_B_PRESSED:
         case 1:
