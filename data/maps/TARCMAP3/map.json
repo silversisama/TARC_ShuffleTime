@@ -2,7 +2,7 @@
   "id": "MAP_TARCMAP3",
   "name": "TARCMAP3",
   "layout": "LAYOUT_TARCMAP3",
-  "music": "MUS_DUMMY",
+  "music": "MUS_FORTREE",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -31,7 +31,7 @@
       "y": 2,
       "elevation": 0,
       "item": "ITEM_DIANCITE",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_TEMP_4"
     },
     {
       "type": "hidden_item",
@@ -39,7 +39,7 @@
       "y": 4,
       "elevation": 0,
       "item": "ITEM_MEGA_RING",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_TEMP_5"
     },
     {
       "type": "hidden_item",
@@ -47,7 +47,7 @@
       "y": 5,
       "elevation": 0,
       "item": "ITEM_FOCUS_SASH",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_TEMP_6"
     }
   ]
 }

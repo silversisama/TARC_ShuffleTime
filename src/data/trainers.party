@@ -4592,43 +4592,43 @@ Gender: Male
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer / Force Setup First Turn
+AI: Smart Trainer 
 Mugshot: Purple
 
-Mightyena
-Level: 46
+Zoroark
+Level: 36
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Roar
-- Double Edge
-- Sand Attack
-- Crunch
+- Knock Off
+- U-turn
+- Agility
+- Night Slash
 
 Shiftry
-Level: 48
+Level: 38
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Torment
 - Double Team
 - Swagger
 - Extrasensory
 
-Cacturne
-Level: 46
+Kingambit
+Level: 36
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Leech Seed
-- Feint Attack
-- Needle Arm
-- Cotton Spore
+- Assurance
+- Slash
+- Metal Sound
+- Metal Claw
 
-Crawdaunt
-Level: 48
+Incineroar
+Level: 38
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Surf
+- Fire Fang
+- Darkest Lariat
+- Swagger
 - Swords Dance
-- Strength
-- Facade
 
 Absol @ Sitrus Berry
-Level: 49
+Level: 39
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Aerial Ace
 - Rock Slide
@@ -4643,43 +4643,43 @@ Gender: Female
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 Mugshot: Green
 
-Dusclops
-Level: 48
+Mimikyu
+Level: 38
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Shadow Punch
-- Confuse Ray
-- Curse
+- Shadow Claw
+- Hone Claws
+- Draining Kiss
 - Protect
 
-Banette
-Level: 49
+Golurk
+Level: 39
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Shadow Ball
-- Grudge
-- Will O Wisp
-- Feint Attack
+- Mega Punch
+- Stomping Tantrum
+- Curse
 
-Sableye
-Level: 50
+Ceruledge
+Level: 38
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Shadow Ball
-- Double Team
+- Swords Dance
+- Lava Plume
+- Hex
 - Night Shade
-- Feint Attack
 
-Banette
-Level: 49
+Jellicent
+Level: 38
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Shadow Ball
-- Psychic
-- Thunderbolt
-- Facade
+- Recover
+- Brine
+- Acid Armor
 
-Dusclops @ Sitrus Berry
-Level: 51
+Dusknoir @ Sitrus Berry
+Level: 37
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Shadow Ball
 - Ice Beam
@@ -4694,7 +4694,7 @@ Gender: Female
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 Mugshot: Pink
 
 Sealeo
@@ -4745,43 +4745,43 @@ Gender: Male
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 Mugshot: Blue
 
-Shelgon
-Level: 52
+Drampa
+Level: 38
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Rock Tomb
-- Dragon Claw
-- Protect
-- Double Edge
+- Extrasensory
+- Dragon Pulse
+- Light Screen
+- Fly
 
-Altaria
-Level: 54
+Druddigon
+Level: 36
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Double Edge
-- Dragon Breath
-- Dragon Dance
-- Aerial Ace
-
-Kingdra
-Level: 53
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Smokescreen
-- Dragon Dance
-- Surf
-- Body Slam
-
-Flygon
-Level: 53
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Flamethrower
 - Crunch
-- Dragon Breath
-- Earthquake
+- Hone Claws
+- Dragon Claw
+- Slash
+
+Dracozolt
+Level: 38
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Stomp
+- Dragon Tail
+- Thunder Punch
+- Thunder Wave
+
+Exeggutor Alola
+Level: 38
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Dragon Hammer
+- Psyshock
+- Egg Bomb
+- Wood Hammer
 
 Salamence @ Sitrus Berry
-Level: 55
+Level: 39
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Flamethrower
 - Dragon Claw
@@ -4794,33 +4794,27 @@ Class: Leader
 Pic: Leader Roxanne
 Gender: Female
 Music: Female
-Items: Potion / Potion
+Items: Super Potion / Super Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Geodude
-Level: 12
+Naclstack
+Level: 24
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-- Defense Curl
-- Rock Throw
-- Rock Tomb
+- Smack Down
+- Iron Defense
+- Mud Shot
+- Rock Polish
 
-Geodude
-Level: 12
+Graveler
+Level: 24
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-- Defense Curl
-- Rock Throw
-- Rock Tomb
+- Rollout
+- Bulldoze
+- Smack Down
+- Self Destruct
 
-Nosepass @ Oran Berry
-Level: 15
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Block
-- Harden
-- Tackle
-- Rock Tomb
+
 
 === TRAINER_BRAWLY_1 ===
 Name: BRAWLY
@@ -4830,31 +4824,25 @@ Gender: Male
 Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Machop
-Level: 16
+Sawk
+Level: 25
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Karate Chop
-- Low Kick
-- Seismic Toss
-- Bulk Up
+- Quick Guard
+- Double Kick
+- Attract
+- Focus Energy
 
-Meditite
-Level: 16
+Throh
+Level: 25
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Focus Punch
-- Light Screen
-- Reflect
-- Bulk Up
+- Wide Guard
+- Circle Throw
+- Thunder Punch
+- Focus Energy
 
-Makuhita @ Sitrus Berry
-Level: 19
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Arm Thrust
-- Vital Throw
-- Reversal
-- Bulk Up
+
 
 === TRAINER_WATTSON_1 ===
 Name: WATTSON
@@ -4864,39 +4852,33 @@ Gender: Male
 Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Voltorb
-Level: 20
+Bellibolt
+Level: 26
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Rollout
+- Water Pulse
 - Spark
-- Self Destruct
-- Shock Wave
+- Charge
+- Volt Switch
 
-Electrike
-Level: 20
+Electabuzz
+Level: 26
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Thunder Wave
 - Shock Wave
-- Leer
-- Quick Attack
-- Howl
+- Swift
+- Ice Punch
 
-Magneton
-Level: 22
+Magnezone
+Level: 27
 IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
 - Supersonic
 - Shock Wave
 - Thunder Wave
 - Sonic Boom
 
-Manectric @ Sitrus Berry
-Level: 24
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Quick Attack
-- Thunder Wave
-- Shock Wave
-- Howl
+
 
 === TRAINER_FLANNERY_1 ===
 Name: FLANNERY
@@ -4906,26 +4888,18 @@ Gender: Female
 Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Numel
-Level: 24
+Magmar
+Level: 28
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Overheat
-- Take Down
-- Magnitude
-- Sunny Day
-
-Slugma
-Level: 24
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Overheat
-- Smog
-- Light Screen
+- Fire Punch
+- Confuse Ray
+- Scary Face
 - Sunny Day
 
 Camerupt
-Level: 26
+Level: 28
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Overheat
 - Tackle
@@ -4948,31 +4922,23 @@ Gender: Male
 Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Spinda
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Teeter Dance
-- Psybeam
-- Facade
-- Encore
-
-Vigoroth
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Facade
-- Encore
-- Feint Attack
-
-Linoone
+Snorlax
 Level: 29
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Belly Drum
-- Facade
-- Headbutt
+- Body Slam
+- Rest
+- Sleep Talk
+- Outrage
+
+Cinccino @ Loaded Dice
+Level: 29
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Tail Slap
+- Encore
+- Charm
+- Bullet Seed
 
 Slaking @ Sitrus Berry
 Level: 31
@@ -4990,31 +4956,23 @@ Gender: Female
 Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Basic Trainer / Risky
+AI: Smart Trainer / Risky
 
-Swablu
-Level: 29
+Emolga
+Level: 31
 IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
-- Perish Song
-- Mirror Move
-- Safeguard
-- Aerial Ace
+- Volt Switch
+- Air Slash
+- Spark
+- Attract
 
-Tropius
-Level: 29
+Toucannon
+Level: 31
 IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
-- Sunny Day
-- Aerial Ace
-- Solar Beam
-- Synthesis
-
-Pelipper
-Level: 30
-IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
-- Water Gun
-- Supersonic
-- Protect
-- Aerial Ace
+- Screech
+- Pluck
+- Roost
+- U-Turn
 
 Skarmory
 Level: 31
@@ -5040,39 +4998,39 @@ Gender: Male
 Music: Female
 Items: Hyper Potion / Hyper Potion / Hyper Potion / Hyper Potion
 Double Battle: Yes
-AI: Basic Trainer
+AI: Smart Trainer
 
-Claydol
-Level: 41
+Espathra
+Level: 34
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Earthquake
-- Ancient Power
+- Trick Room
+- Pluck
 - Psychic
 - Light Screen
 
 Xatu
-Level: 41
+Level: 34
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Psychic
-- Sunny Day
+- Reflect
 - Confuse Ray
 - Calm Mind
 
-Lunatone @ Sitrus Berry
-Level: 42
+Gothitelle @ Sitrus Berry
+Level: 35
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Light Screen
 - Psychic
 - Hypnosis
 - Calm Mind
 
-Solrock @ Sitrus Berry
-Level: 42
+Meowstic @ Sitrus Berry
+Level: 35
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Sunny Day
-- Solar Beam
+- Sucker Punch
+- Reflect
 - Psychic
-- Flamethrower
+- Role Play
 
 === TRAINER_JUAN_1 ===
 Name: JUAN
@@ -5082,42 +5040,34 @@ Gender: Male
 Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Luvdisc
-Level: 41
+Wugtrio
+Level: 36
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Water Pulse
-- Attract
-- Sweet Kiss
-- Flail
+- Sucker Punch
+- Triple Dive
+- Slam
+- Earth Power
 
-Whiscash
-Level: 41
+Greninja
+Level: 37
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Rain Dance
-- Water Pulse
+- Substitute
+- Spikes
+- Surf
+- Aerial Ace
+
+Cramorant
+Level: 36
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dive
+- Drill Peck
+- Protect
 - Amnesia
-- Earthquake
-
-Sealeo
-Level: 43
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Encore
-- Body Slam
-- Aurora Beam
-- Water Pulse
-
-Crawdaunt
-Level: 43
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Water Pulse
-- Crabhammer
-- Taunt
-- Leer
 
 Kingdra @ Chesto Berry
-Level: 46
+Level: 36
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Water Pulse
 - Double Team
@@ -15861,50 +15811,50 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Skarmory
-Level: 77
+Tinkaton
+Level: 37
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Toxic
-- Aerial Ace
+- Fake Out
+- Flatter
+- Play Rough
+- Flash Cannon
+
+Melmetal
+Level: 35
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Flash Cannon
+- Acid Armor
+- Thunder Wave
+- Protect
+
+Ferrothorn
+Level: 36
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Iron Head
 - Spikes
-- Steel Wing
-
-Claydol
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Reflect
-- Light Screen
-- Ancient Power
-- Earthquake
-
-Aggron
-Level: 76
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Thunder
-- Earthquake
-- Solar Beam
-- Dragon Claw
-
-Cradily
-Level: 76
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Giga Drain
-- Ancient Power
+- Power Whip
 - Ingrain
-- Confuse Ray
 
-Armaldo
-Level: 76
+Duraludon
+Level: 36
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Water Pulse
-- Ancient Power
-- Aerial Ace
-- Slash
+- Dragon Tail
+- Iron Defense
+- Focus Energy
+- Reflect
+
+Aegislash
+Level: 36
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sacred Sword
+- Swords Dance
+- Shadow Sneak
+- King's Shield
 
 Metagross @ Sitrus Berry
-Level: 78
+Level: 38
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Earthquake
 - Psychic

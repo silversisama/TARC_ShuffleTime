@@ -224,14 +224,14 @@ static const u16 sAbilityItems[] =
 
 static u16 ExpCandyItems[][2] =
 {
-    { ITEM_EXP_CANDY_XS, 2 },
-    { ITEM_EXP_CANDY_XS, 3 },
-    { ITEM_EXP_CANDY_XS, 4 },
-    { ITEM_EXP_CANDY_S,  1 },
-    { ITEM_EXP_CANDY_S,  2 },
-    { ITEM_EXP_CANDY_S,  3 },
-    { ITEM_EXP_CANDY_S,  4 },
-    { ITEM_EXP_CANDY_M,  2 },
+    { ITEM_EXP_CANDY_M, 2 },
+    { ITEM_EXP_CANDY_M, 3 },
+    { ITEM_EXP_CANDY_M, 4 },
+    { ITEM_EXP_CANDY_L,  1 },
+    { ITEM_EXP_CANDY_L,  2 },
+    { ITEM_EXP_CANDY_L,  3 },
+    { ITEM_EXP_CANDY_L,  4 },
+    { ITEM_EXP_CANDY_XL,  2 },
 };
 
 static u8 sSuitCardIndices[SUIT_COUNT][2] =

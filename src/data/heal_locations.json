@@ -131,6 +131,24 @@
       "map": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
       "x": 3,
       "y": 52
+    },
+    {
+      "id": "HEAL_LOCATION_TARCMAP",
+      "map": "MAP_TARCMAP",
+      "x": 9,
+      "y": 43
+    },
+    {
+      "id": "HEAL_LOCATION_TARCMAP_2",
+      "map": "MAP_TARCMAP",
+      "x": 7,
+      "y": 27
+    },
+    {
+      "id": "HEAL_LOCATION_TARCMAP_3",
+      "map": "MAP_TARCMAP",
+      "x": 18,
+      "y": 12
     }
   ]
 }

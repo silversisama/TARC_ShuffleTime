@@ -86,6 +86,14 @@ bool8 IsEnoughMoney(u32 *moneyPtr, u32 cost)
         return FALSE;
 }
 
+u32 GetMoneyHelper(void)
+{
+   u32 amount = GetMoney(&gSaveBlock1Ptr->money);
+   ConvertIntToDecimalStringN(gStringVar1, amount, STR_CONV_MODE_LEFT_ALIGN, 5);
+   return 0;
+}
+
+
 void AddMoney(u32 *moneyPtr, u32 toAdd)
 {
     u32 toSet = GetMoney(moneyPtr);

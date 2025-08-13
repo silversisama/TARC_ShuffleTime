@@ -13,6 +13,8 @@ TARCSTART::
 	setflag FLAG_BADGE07_GET
 	setflag FLAG_BADGE08_GET
 	setflag FLAG_UNUSED_0x020
+	setflag FLAG_RECEIVED_RUNNING_SHOES
+	setrespawn HEAL_LOCATION_TARCMAP	
 	return
 
 
@@ -25,7 +27,14 @@ TARCINTRO::
 	msgbox TARCINTRO_Text_3
 	releaseall
 	return
+WhereGlace::
+	lockall
+	msgbox WhereGlaceText
+	releaseall
+	return
 
+WhereGlaceText:
+	.string "Glacie is on vacation. No Ice here!$"
 
 TARCINTRO_Text_0:
 	.string "In the weave of time, beyond sight and\n"
@@ -109,8 +118,8 @@ TARCText_NoEntry1::
 	end
 
 TARCText_NoEntry:
-	.string "There are slimy vines!/l"
-	.string "You don't want to enter!'!$"
+	.string "There are slimy vines!\n"
+	.string "You don't want to enter!$"
 
 TARCText_NoMore:
 	.string "No more picks right now!$"
@@ -120,34 +129,35 @@ TARCEventScript_Roxannematch::
 	msgbox TARCText_RoxannePostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_RoxannePrematch:
-	.string "Test.$"
+	.string "I'm about to rock your world!$"
 TARCText_RoxanneMatchDefeat:
-	.string "Test.$"
+	.string "I bit the dust - and the gravel.$"
 
 TARCText_RoxannePostmatch:
-	.string "Test.$"
+	.string "Guess I take things for granite.$"
 
 TARCEventScript_Brawlymatch::
 	trainerbattle_single TRAINER_BRAWLY_1, TARCText_BrawlyPrematch, TARCText_BrawlyMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
 	msgbox TARCText_BrawlyPostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_BrawlyPrematch:
-	.string "Test.$"
+	.string "My fists are legendary -- want an \n"
+	.string "autograph, or a bruise?$"
 TARCText_BrawlyMatchDefeat:
-	.string "Test.$"
+	.string "Wow. You KO'd my confidence.$"
 TARCText_BrawlyPostmatch:
-	.string "Test.$"
+	.string "Guess that was a low blow to my pride.$"
 
 TARCEventScript_Wattsonmatch::
 	trainerbattle_single TRAINER_WATTSON_1, TARCText_WattsonPrematch, TARCText_WattsonMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
 	msgbox TARCText_WattsonPostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_WattsonPrematch:
-	.string "Test.$"
+	.string "My strategy? High energy, low mercy.$"
 TARCText_WattsonMatchDefeat:
-	.string "Test.$"
+	.string "Too bad your team was fully grounded...$"
 TARCText_WattsonPostmatch:
-	.string "Test.$"
+	.string "Guess I was all static and no surge.$"
 
 
 TARCEventScript_Flannerymatch::
@@ -155,33 +165,35 @@ TARCEventScript_Flannerymatch::
 	msgbox TARCText_FlanneryPostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_FlanneryPrematch:
-	.string "Test.$"
+	.string "Your win streak? About to be cooked.$"
 TARCText_FlanneryMatchDefeat:
-	.string "Test.$"
+	.string "Well, that went up in smoke.$"
 TARCText_FlanneryPostmatch:
-	.string "Test.$"
+	.string "Guess I burned myself out.$"
 
 TARCEventScript_Normanmatch::
 	trainerbattle_single TRAINER_NORMAN_1, TARCText_NormanPrematch, TARCText_NormanMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
 	msgbox TARCText_NormanPostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_NormanPrematch:
-	.string "Test.$"
+	.string "Simple strategies. Superior results.$"
 TARCText_NormanMatchDefeat:
-	.string "Test.$"
+	.string "You turned my easy win into an easy loss.$"
 TARCText_NormanPostmatch:
-	.string "Test.$"
+	.string "Guess I'm just your stepping stone \n"
+	.string "to greatness.$"
 
 TARCEventScript_Tatematch::
 	trainerbattle_double TRAINER_TATE_AND_LIZA_1, TARCText_TatePrematch, TARCText_TateMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
 	msgbox TARCText_TatePostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_TatePrematch:
-	.string "Test.$"
+	.string "We're sensing… an L in your future.$"
 TARCText_TateMatchDefeat:
-	.string "Test.$"
+	.string "Looks like our future sight was... \n"
+	.string "slightly off.$"
 TARCText_TatePostmatch:
-	.string "Test.$"
+	.string "Guess we weren't clairvoyant enough.$"
 
 
 TARCEventScript_Winonamatch::
@@ -189,73 +201,98 @@ TARCEventScript_Winonamatch::
 	msgbox TARCText_WinonaPostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_WinonaPrematch:
-	.string "Test.$"
+	.string "This battle is about to take off.$"
 TARCText_WinonaMatchDefeat:
-	.string "Test.$"
+	.string "Well, that was a crash landing.$"
 TARCText_WinonaPostmatch:
-	.string "Test.$"
+	.string "Guess my strategy never really took off.$"
 
 TARCEventScript_Sidneymatch::
-	trainerbattle_single TRAINER_JUAN_1, TARCText_SidneyPrematch, TARCText_SidneyMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
+	trainerbattle_single TRAINER_SIDNEY, TARCText_SidneyPrematch, TARCText_SidneyMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
 	msgbox TARCText_SidneyPostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_SidneyPrematch:
-	.string "Test.$"
+	.string "Ready to face your darkest fears?$"
 TARCText_SidneyMatchDefeat:
-	.string "Test.$"
+	.string "Even the deepest shadows can't hide defeat.$"
 TARCText_SidneyPostmatch:
-	.string "Test.$"
+	.string "Guess I'll slink back into the shadows.$"
 
 TARCEventScript_Drakematch::
-	trainerbattle_single TRAINER_JUAN_1, TARCText_DrakePrematch, TARCText_DrakeMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
+	trainerbattle_single TRAINER_DRAKE, TARCText_DrakePrematch, TARCText_DrakeMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
 	msgbox TARCText_DrakePostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_DrakePrematch:
-	.string "Test.$"
+	.string "Let's see if you can handle my scale of power.$"
 TARCText_DrakeMatchDefeat:
-	.string "Test.$"
+	.string "My scales couldn't shield me from that hit.$"
 TARCText_DrakePostmatch:
-	.string "Test.$"
+	.string "Guess my scales weren't as tough as I thought..$"
 
 TARCEventScript_Phoebematch::
-	trainerbattle_single TRAINER_JUAN_1, TARCText_PhoebePrematch, TARCText_PhoebeMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
+	trainerbattle_single TRAINER_PHOEBE, TARCText_PhoebePrematch, TARCText_PhoebeMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
 	msgbox TARCText_PhoebePostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_PhoebePrematch:
-	.string "Test.$"
+	.string "I'm dying to see how you handle this.$"
 
 TARCText_PhoebeMatchDefeat:
-	.string "Test.$"
+	.string "Well... that was a grave mistake on my part.$"
 
 TARCText_PhoebePostmatch:
-	.string "Test.$"
+	.string "Guess my plan was dead on arrival.$"
 
 TARCEventScript_Stevenmatch::
-	trainerbattle_single TRAINER_JUAN_1, TARCText_StevenPrematch, TARCText_StevenMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
+	trainerbattle_single TRAINER_STEVEN, TARCText_StevenPrematch, TARCText_StevenMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
 	msgbox TARCText_StevenPostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_StevenPrematch:
-	.string "Test.$"
+	.string "You can't cut it against my steel.$"
 
 TARCText_StevenMatchDefeat:
-	.string "Test.$"
+	.string "You really hammered me there.$"
 
 TARCText_StevenPostmatch:
-	.string "Test.$"
+	.string "Guess I wasn't as unbreakable as I thought.$"
 
 TARCEventScript_Juanmatch::
 	trainerbattle_single TRAINER_JUAN_1, TARCText_JuanPrematch, TARCText_JuanMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
 	msgbox TARCText_JuanPostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_JuanPrematch:
-	.string "Test.$"
+	.string "Time to soak up another win.$"
 
 TARCText_JuanMatchDefeat:
-	.string "Test.$"
+	.string "You swam circles around me.$"
 
 TARCText_JuanPostmatch:
-	.string "Test.$"
+	.string "Guess I am sleeping with the Magikarp.$"
 
+ARC_HEALER::
+	lock
+	faceplayer
+	msgbox WantCandy, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, GiveCandy
+	goto_if_eq VAR_RESULT, NO, NoCandy
+	end
+
+WantCandy:
+	.string "Hey, kid, want some candy?$"
+	
+GiveCandy::
+	msgbox HereUGo
+	addvar VAR_PACIFIDLOG_TOWN_STATE, 1
+	giveitem ITEM_EXP_CANDY_XL 10
+	releaseall
+	end
+HereUGo:
+	.string "Enjoy the hackaroo!$"
+NoCandy::
+	msgbox BeThatWay
+	releaseall
+	end
+BeThatWay:
+	.string "Fine, be that way. Ugh.$"
 
 TARC_HEALER::
 	lock
@@ -267,6 +304,7 @@ TARC_HEALER::
 
 Route111_OldLadysRestStop_EventScript_Rest::
 	msgbox Route111_OldLadysRestStop_Text_TakeYourTimeRestUp, MSGBOX_DEFAULT
+	addvar VAR_VERDANTURF_TOWN_STATE, 1
 	closemessage
 	call Common_EventScript_OutOfCenterPartyHeal
 	msgbox Route111_OldLadysRestStop_Text_StillTiredTakeAnotherRest, MSGBOX_YESNO
@@ -302,6 +340,7 @@ Route111_OldLadysRestStop_Text_DontNeedToBeShy:
 
 Aio_Intro::
 	lockall
+	setvar VAR_TEMP_7, 1
 	msgbox Aio_Intro_Text_0
 	releaseall
 	return
@@ -309,23 +348,76 @@ Aio_Intro::
 
 Aio_Intro_Text_0:
 	.string "Hiya, and welcome to my Romhack! I'm Aio,\n"
-	.string "the creator of this game. Are you ready\n"
-	.string "to go down in history? This room is your\l"
-	.string "chance to play in a mini game for fame\l"
-	.string "and glory! The premise is simple. During\l"
-	.string "the course of your trials, a mini game\l"
-	.string "will appear after battle. Your goal is to\l"
-	.string "earn as much money as possible using a\l"
-	.string "randomised set of cards presented to\l"
-	.string "you. After 12 battles, the romhack will\l"
-	.string "be over, and you will be presented with\l"
-	.string "your total cash accumulated for\l"
-	.string "bragging rights among the community!\l"
-	.string "This mini game will be in my full length\l"
-	.string "Persona inspired Romhack, Pokemon\l"
-	.string "Rosebud! Without further ado, have fun\l"
-	.string "and good luck!$"
+	.string "the creator of this game. Are you ready\p"
+	.string "to go down in history? This room is your\p"
+	.string "chance to play in a mini game for fame\n"
+	.string "and glory! The premise is simple. During\p"
+	.string "the course of your trials, a mini game\n"
+	.string "will appear after battle. Your goal is to\p"
+	.string "earn as much money as possible using a\n"
+	.string "randomised set of cards presented to\p"
+	.string "you. After 12 battles, the romhack will\n"
+	.string "be over, and you will be presented with\p"
+	.string "your total cash accumulated for\n"
+	.string "bragging rights among the community!\p"
+	.string "This mini game will be in my full length\n"
+	.string "Persona inspired Romhack, Pokemon\p"
+	.string "Rosebud! Without further ado, have fun\n"
+	.string "and good luck! Now, choose your Pokemon!$"
 
+Aio_Movement:
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+TriggerFinish::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Aio_Movement
+	waitmovement(0)
+	msgbox YouWin
+	specialvar VAR_RESULT, GetMoneyHelper
+	buffernumberstring STR_VAR_1, VAR_RESULT 
+	msgbox MoneyGet
+	specialvar VAR_RESULT, GetSwordTokens
+	buffernumberstring STR_VAR_2, VAR_RESULT 
+	msgbox SwordsGet
+	buffernumberstring STR_VAR_3, VAR_VERDANTURF_TOWN_STATE 
+	msgbox JoyRest
+	buffernumberstring STR_VAR_1, VAR_PACIFIDLOG_TOWN_STATE 
+	msgbox CandyCount
+	msgbox FinishGame
+	special GameClear
+	waitstate
+	releaseall
+	end
+
+YouWin:
+	.string "Thank you for playing my tech demo!\n"
+	.string "Press A button to see your stats!$"
+
+MoneyGet: 
+	.string "Total money earned is {STR_VAR_1}!$"
+
+SwordsGet: 
+	.string "Total Sword Tokens earned is {STR_VAR_2}!$"
+
+JoyRest:
+	.string "You rested with Joy {STR_VAR_3} times!$"
+
+CandyCount:
+	.string "You received candies {STR_VAR_1} times!$"
+
+FinishGame:
+	.string "Aio and LC hope you have a great day! Look\n"
+	.string "forward to Pokemon Rosebud, ETA Fall 2026!$"
 
 BP_Mart_MoveTutor::
 	lock
@@ -349,7 +441,7 @@ BP_Mart_MoveTutor_2:
 	.align 2
 
 ST_Mart_Greetings:
-	.string "You can spend Sword Tokens here!$"
+	.string "You can spend sword tokens here!$"
 
 IllTakeYourSTNow:
 	.string "I'll take any sword tokens. Thanks!$"

@@ -136,10 +136,12 @@ static const struct HealLocation sHealLocationsPokemonCenter[NUM_HEAL_LOCATIONS 
     },
     [HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST - 1] =
     {
-        .mapGroup = MAP_GROUP(MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F),
-        .mapNum = MAP_NUM(MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F),
-        DEFAULT_POKEMON_CENTER_COORDS,
+        .mapGroup = MAP_GROUP(MAP_TARCMAP),
+        .mapNum = MAP_NUM(MAP_TARCMAP),
+        .x = 9,
+        .y = 49,
     },
+
 };
 
 #undef DEFAULT_POKEMON_CENTER_COORDS

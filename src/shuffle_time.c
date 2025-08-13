@@ -742,6 +742,7 @@ static void CB2_OpenShuffleTime(void)
 void CB2_OpenShuffleTimeFromEndBattle(void)
 {
     CreateTask(Task_OpenShuffleTime, 0);
+    PlayBGM(MUS_SHUFFLE_TIME);
     SetMainCallback2(CB2_OpenShuffleTime);
 }
 
@@ -1071,6 +1072,7 @@ static void Task_ShuffleTimeCardSelected(u8 taskId)
         }
         else
             ShuffleTimeFadeAndExit();
+            GetCurrentMapMusic();
         gTasks[taskId].func = Task_ShuffleTimeMain;
         break;
     }
