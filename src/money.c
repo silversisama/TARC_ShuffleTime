@@ -88,9 +88,12 @@ bool8 IsEnoughMoney(u32 *moneyPtr, u32 cost)
 
 u32 GetMoneyHelper(void)
 {
-   return GetMoney(&gSaveBlock1Ptr->money);
+    u32 amount = GetMoney(&gSaveBlock1Ptr->money);
+    u32 numDigits = CountDigits(amount);
+    u32 maxDigits = (numDigits > 6) ? MAX_MONEY_DIGITS: 6;
+    ConvertIntToDecimalStringN(gStringVar1, amount, STR_CONV_MODE_LEFT_ALIGN, maxDigits);
+    return 0;
 }
-
 
 void AddMoney(u32 *moneyPtr, u32 toAdd)
 {

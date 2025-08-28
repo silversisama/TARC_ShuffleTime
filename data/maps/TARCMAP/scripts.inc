@@ -436,8 +436,7 @@ TriggerFinish::
 	applymovement OBJ_EVENT_ID_PLAYER, Aio_Movement
 	waitmovement(0)
 	msgbox YouWin
-	specialvar VAR_RESULT, GetMoneyHelper
-	buffernumberstring STR_VAR_1, VAR_RESULT 
+	special GetMoneyHelper
 	msgbox MoneyGet
 	specialvar VAR_RESULT, GetSwordTokens
 	buffernumberstring STR_VAR_2, VAR_RESULT 
