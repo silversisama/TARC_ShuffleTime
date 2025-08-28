@@ -62,7 +62,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "5",
+      "trainer_sight_or_berry_tree_id": "4",
       "script": "TARCEventScript_Flannerymatch",
       "flag": "0"
     },
@@ -351,6 +351,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TARC_HEALER",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_SHOPGUY",
+      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
+      "x": 1,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -430,6 +444,33 @@
       "var": "VAR_MAUVILLE_CITY_STATE",
       "var_value": "0",
       "script": "TriggerFinish"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_CYCLING_ROAD_RECORD_TIME_H",
+      "var_value": "0",
+      "script": "TARCMAPFINISHTWOSTEP"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_FRONTIER_TUTOR_SELECTION",
+      "var_value": "0",
+      "script": "TARCMAPFINISHONESTEP"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_ROUTE118_STATE",
+      "var_value": "0",
+      "script": "TARCFINISH"
     }
   ],
   "bg_events": [

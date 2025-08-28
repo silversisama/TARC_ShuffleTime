@@ -88,9 +88,7 @@ bool8 IsEnoughMoney(u32 *moneyPtr, u32 cost)
 
 u32 GetMoneyHelper(void)
 {
-   u32 amount = GetMoney(&gSaveBlock1Ptr->money);
-   ConvertIntToDecimalStringN(gStringVar1, amount, STR_CONV_MODE_LEFT_ALIGN, 5);
-   return 0;
+   return GetMoney(&gSaveBlock1Ptr->money);
 }
 
 

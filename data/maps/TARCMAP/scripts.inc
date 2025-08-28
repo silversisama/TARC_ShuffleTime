@@ -17,7 +17,44 @@ TARCSTART::
 	setrespawn HEAL_LOCATION_TARCMAP	
 	return
 
+TARCMAPFINISHTWOSTEP::
+	lock
+	faceplayer
+	applymovement LOCALID_SHOPGUY, TARC_TwoStep
+	goto TARCFINISH
 
+TARCMAPFINISHONESTEP::
+	lock
+	faceplayer
+	applymovement LOCALID_SHOPGUY, TARC_OneStep
+	goto TARCFINISH
+	return
+
+TARCFINISH::
+	msgbox TARCFINISHWAIT, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, TARCMAPSHOP 
+	msgbox Okay_Then
+	releaseall
+	return
+	end
+
+TARCMAPSHOP::
+	pokemart TARCSHOP
+	releaseall
+	return
+	end
+
+TARCSHOP:
+	.2byte ITEM_EXP_CANDY_XL
+	pokemartlistend
+
+TARCFINISHWAIT:
+	.string "Before you go, do you want to \n"
+	.string "Sell your extra items?$"
+
+Okay_Then:
+	.string "Okay then, hope you get a high\n"
+	.string "score!$"
 
 TARCINTRO::
 	lockall
@@ -214,20 +251,25 @@ TARCEventScript_Sidneymatch::
 TARCText_SidneyPrematch:
 	.string "Ready to face your darkest fears?$"
 TARCText_SidneyMatchDefeat:
-	.string "Even the deepest shadows can't hide defeat.$"
+	.string "Even the deepest shadows can't hide\n"
+	.string "defeat.$"
 TARCText_SidneyPostmatch:
-	.string "Guess I'll slink back into the shadows.$"
+	.string "Guess I'll slink back into the\n"
+	.string "shadows.$"
 
 TARCEventScript_Drakematch::
 	trainerbattle_single TRAINER_DRAKE, TARCText_DrakePrematch, TARCText_DrakeMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
 	msgbox TARCText_DrakePostmatch, MSGBOX_AUTOCLOSE
 	end
 TARCText_DrakePrematch:
-	.string "Let's see if you can handle my scale of power.$"
+	.string "Let's see if you can handle my scale of\n"
+	.string "power.$"
 TARCText_DrakeMatchDefeat:
-	.string "My scales couldn't shield me from that hit.$"
+	.string "My scales couldn't shield me from that \n"
+	.string "hit.$"
 TARCText_DrakePostmatch:
-	.string "Guess my scales weren't as tough as I thought..$"
+	.string "Guess my scales weren't as tough as \n"
+	.string "I thought..$"
 
 TARCEventScript_Phoebematch::
 	trainerbattle_single TRAINER_PHOEBE, TARCText_PhoebePrematch, TARCText_PhoebeMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
@@ -237,7 +279,8 @@ TARCText_PhoebePrematch:
 	.string "I'm dying to see how you handle this.$"
 
 TARCText_PhoebeMatchDefeat:
-	.string "Well... that was a grave mistake on my part.$"
+	.string "Well... that's a grave mistake on my\n"
+	.string "part.$"
 
 TARCText_PhoebePostmatch:
 	.string "Guess my plan was dead on arrival.$"
@@ -253,7 +296,8 @@ TARCText_StevenMatchDefeat:
 	.string "You really hammered me there.$"
 
 TARCText_StevenPostmatch:
-	.string "Guess I wasn't as unbreakable as I thought.$"
+	.string "Guess I wasn't as unbreakable as I\n"
+	.string "thought.$"
 
 TARCEventScript_Juanmatch::
 	trainerbattle_single TRAINER_JUAN_1, TARCText_JuanPrematch, TARCText_JuanMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
@@ -345,24 +389,33 @@ Aio_Intro::
 	releaseall
 	return
 
+TARC_OneStep:
+	walk_right
+	step_end
+
+TARC_TwoStep:
+	walk_right
+	walk_right
+	step_end
+
 
 Aio_Intro_Text_0:
 	.string "Hiya, and welcome to my Romhack! I'm Aio,\n"
 	.string "the creator of this game. Are you ready\p"
-	.string "to go down in history? This room is your\p"
-	.string "chance to play in a mini game for fame\n"
-	.string "and glory! The premise is simple. During\p"
-	.string "the course of your trials, a mini game\n"
-	.string "will appear after battle. Your goal is to\p"
-	.string "earn as much money as possible using a\n"
-	.string "randomised set of cards presented to\p"
-	.string "you. After 12 battles, the romhack will\n"
-	.string "be over, and you will be presented with\p"
-	.string "your total cash accumulated for\n"
-	.string "bragging rights among the community!\p"
-	.string "This mini game will be in my full length\n"
-	.string "Persona inspired Romhack, Pokemon\p"
-	.string "Rosebud! Without further ado, have fun\n"
+	.string "to go down in history? This room is your\n"
+	.string "chance to play in a mini game for fame\p"
+	.string "and glory! The premise is simple. During\n"
+	.string "the course of your trials, a mini game\p"
+	.string "will appear after battle. Your goal is to\n"
+	.string "earn as much money as possible using a\p"
+	.string "randomised set of cards presented to\n"
+	.string "you. After 12 battles, the romhack will\p"
+	.string "be over, and you will be presented with\n"
+	.string "your total cash accumulated for\p"
+	.string "bragging rights among the community!\n"
+	.string "This mini game will be in my full length\p"
+	.string "Persona inspired Romhack, Pokemon\n"
+	.string "Rosebud! Without further ado, have fun\p"
 	.string "and good luck! Now, choose your Pokemon!$"
 
 Aio_Movement:
@@ -416,8 +469,9 @@ CandyCount:
 	.string "You received candies {STR_VAR_1} times!$"
 
 FinishGame:
-	.string "Aio and LC hope you have a great day! Look\n"
-	.string "forward to Pokemon Rosebud, ETA Fall 2026!$"
+	.string "Aio and LC hope you have a great day!\n"
+	.string "Look forward to Pokemon Rosebud, ETA \p"
+	.string "Fall 2026!$"
 
 BP_Mart_MoveTutor::
 	lock

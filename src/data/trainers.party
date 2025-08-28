@@ -4592,7 +4592,7 @@ Gender: Male
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Smart Trainer 
+AI: Check Bad Move / Try to Faint / Check Viability
 Mugshot: Purple
 
 Zoroark
@@ -4643,7 +4643,7 @@ Gender: Female
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Smart Trainer
+AI: Check Bad Move / Try to Faint / Check Viability
 Mugshot: Green
 
 Mimikyu
@@ -4694,7 +4694,7 @@ Gender: Female
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Smart Trainer
+AI: Check Bad Move / Try to Faint / Check Viability
 Mugshot: Pink
 
 Sealeo
@@ -4745,7 +4745,7 @@ Gender: Male
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Smart Trainer
+AI: Check Bad Move / Try to Faint / Check Viability
 Mugshot: Blue
 
 Drampa
@@ -4796,7 +4796,7 @@ Gender: Female
 Music: Female
 Items: Super Potion / Super Potion
 Double Battle: No
-AI: Smart Trainer
+AI: Check Bad Move / Try to Faint / Check Viability
 
 Naclstack
 Level: 24
@@ -4824,7 +4824,7 @@ Gender: Male
 Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
-AI: Smart Trainer
+AI: Check Bad Move / Try to Faint / Check Viability
 
 Sawk
 Level: 25
@@ -4852,7 +4852,7 @@ Gender: Male
 Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
-AI: Smart Trainer
+AI: Check Bad Move / Try to Faint / Check Viability
 
 Bellibolt
 Level: 26
@@ -4888,7 +4888,7 @@ Gender: Female
 Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Smart Trainer
+AI: Check Bad Move / Try to Faint / Check Viability
 
 Magmar
 Level: 28
@@ -4922,7 +4922,7 @@ Gender: Male
 Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Smart Trainer
+AI: Check Bad Move / Try to Faint / Check Viability
 
 Snorlax
 Level: 29
@@ -4956,7 +4956,7 @@ Gender: Female
 Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Smart Trainer / Risky
+AI: Check Bad Move / Try to Faint / Check Viability
 
 Emolga
 Level: 31
@@ -4998,7 +4998,7 @@ Gender: Male
 Music: Female
 Items: Hyper Potion / Hyper Potion / Hyper Potion / Hyper Potion
 Double Battle: Yes
-AI: Smart Trainer
+AI: Check Bad Move / Try to Faint / Check Viability
 
 Espathra
 Level: 34
@@ -5040,7 +5040,7 @@ Gender: Male
 Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Smart Trainer
+AI: Check Bad Move / Try to Faint / Check Viability
 
 Wugtrio
 Level: 36
@@ -15811,7 +15811,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
-AI: Smart Trainer
+AI: Check Bad Move / Try to Faint / Check Viability
 
 Tinkaton
 Level: 37

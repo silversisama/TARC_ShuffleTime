@@ -2051,7 +2051,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Exp. Candy XL"),
         .pluralName = _("Exp. Candies XL"),
-        .price = 10000,
+        .price = 0,
         .holdEffectParam = EXP_30000,
         .description = COMPOUND_STRING(
             "Gives a very large\n"
