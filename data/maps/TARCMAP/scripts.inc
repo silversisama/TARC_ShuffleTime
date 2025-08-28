@@ -438,8 +438,7 @@ TriggerFinish::
 	msgbox YouWin
 	special GetMoneyHelper
 	msgbox MoneyGet
-	specialvar VAR_RESULT, GetSwordTokens
-	buffernumberstring STR_VAR_2, VAR_RESULT 
+	special GetSwordTokensHelper
 	msgbox SwordsGet
 	buffernumberstring STR_VAR_3, VAR_VERDANTURF_TOWN_STATE 
 	msgbox JoyRest
@@ -459,7 +458,7 @@ MoneyGet:
 	.string "Total money earned is {STR_VAR_1}!$"
 
 SwordsGet: 
-	.string "Total Sword Tokens earned is {STR_VAR_2}!$"
+	.string "Total Sword Tokens earned is {STR_VAR_1}!$"
 
 JoyRest:
 	.string "You rested with Joy {STR_VAR_3} times!$"

@@ -564,4 +564,4 @@ gSpecials::
 	def_special EnterCode
 	def_special GetCodeFeedback
 	def_special GetMoneyHelper
-	def_special GetSwordTokens
+	def_special GetSwordTokensHelper
