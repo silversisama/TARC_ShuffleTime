@@ -14,23 +14,27 @@ TARCSTART::
 	setflag FLAG_BADGE08_GET
 	setflag FLAG_UNUSED_0x020
 	setflag FLAG_RECEIVED_RUNNING_SHOES
+	setflag FLAG_SYS_B_DASH	
 	setrespawn HEAL_LOCATION_TARCMAP	
 	return
 
 TARCMAPFINISHTWOSTEP::
 	lock
 	faceplayer
+	goto_if_eq VAR_TARCSHOP_STATE, 1, TARCFINISH
 	applymovement LOCALID_SHOPGUY, TARC_TwoStep
 	goto TARCFINISH
 
 TARCMAPFINISHONESTEP::
 	lock
 	faceplayer
+	goto_if_eq VAR_TARCSHOP_STATE, 1, TARCFINISH
 	applymovement LOCALID_SHOPGUY, TARC_OneStep
 	goto TARCFINISH
 	return
 
 TARCFINISH::
+    setvar VAR_TARCSHOP_STATE, 1
 	msgbox TARCFINISHWAIT, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, TARCMAPSHOP 
 	msgbox Okay_Then
@@ -242,7 +246,7 @@ TARCText_WinonaPrematch:
 TARCText_WinonaMatchDefeat:
 	.string "Well, that was a crash landing.$"
 TARCText_WinonaPostmatch:
-	.string "Guess my strategy never really took off.$"
+	.string "Guess my strategy never took off.$"
 
 TARCEventScript_Sidneymatch::
 	trainerbattle_single TRAINER_SIDNEY, TARCText_SidneyPrematch, TARCText_SidneyMatchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
@@ -413,9 +417,10 @@ Aio_Intro_Text_0:
 	.string "be over, and you will be presented with\n"
 	.string "your total cash accumulated for\p"
 	.string "bragging rights among the community!\n"
-	.string "This mini game will be in my full length\p"
-	.string "Persona inspired Romhack, Pokemon\n"
-	.string "Rosebud! Without further ado, have fun\p"
+	.string "If you get items, you can sell them, too!\p"
+	.string "This mini game will be in my full length\n"
+	.string "Persona inspired Romhack, Pokemon\p"
+	.string "Rosebud! Without further ado, have fun\n"
 	.string "and good luck! Now, choose your Pokemon!$"
 
 Aio_Movement:

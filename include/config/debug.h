@@ -8,7 +8,7 @@
 #define DEBUG_OVERWORLD_IN_MENU         FALSE               // Replaces the overworld debug menu button combination with a start menu entry (above Pokédex).
 
 // Shuffle Time Debug
-#define DEBUG_SHUFFLE_TIME              TRUE    // If set to TRUE, enables to reshuffle in the minigame by pressing the R button.
+#define DEBUG_SHUFFLE_TIME              FALSE    // If set to TRUE, enables to reshuffle in the minigame by pressing the R button.
 
 // Battle Debug Menu
 #define DEBUG_BATTLE_MENU               TRUE    // If set to TRUE, enables a debug menu to use in battles by pressing the Select button.
