@@ -15,7 +15,8 @@ TARCSTART::
 	setflag FLAG_UNUSED_0x020
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	setflag FLAG_SYS_B_DASH	
-	setrespawn HEAL_LOCATION_TARCMAP	
+	setrespawn HEAL_LOCATION_TARCMAP
+	special EnableNationalPokedex	
 	return
 
 TARCMAPFINISHTWOSTEP::
@@ -62,6 +63,7 @@ Okay_Then:
 
 TARCINTRO::
 	lockall
+	setvar VAR_TARCINTRO_STATE, 1
 	msgbox TARCINTRO_Text_0
 	msgbox TARCINTRO_Text_1
 	msgbox TARCINTRO_Text_2
@@ -219,7 +221,8 @@ TARCEventScript_Normanmatch::
 TARCText_NormanPrematch:
 	.string "Simple strategies. Superior results.$"
 TARCText_NormanMatchDefeat:
-	.string "You turned my easy win into an easy loss.$"
+	.string "You turned my easy win into an easy \n"
+	.string "loss.$"
 TARCText_NormanPostmatch:
 	.string "Guess I'm just your stepping stone \n"
 	.string "to greatness.$"
@@ -335,10 +338,12 @@ GiveCandy::
 	end
 HereUGo:
 	.string "Enjoy the hackaroo!$"
+
 NoCandy::
 	msgbox BeThatWay
 	releaseall
 	end
+
 BeThatWay:
 	.string "Fine, be that way. Ugh.$"
 
@@ -385,10 +390,22 @@ Route111_OldLadysRestStop_Text_DontNeedToBeShy:
 	.string "Is that so?\n"
 	.string "You don't need to be shy about it.$"
 
+PokeCheck2::
+	goto_if_eq VAR_TARCBALL_STATE, 0, PokeCheck
+
+PokeCheck::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Check_Movement
+	msgbox PokeCheckText
+	releaseall
+	return
+	
+PokeCheckText:
+	.string "Hey, get some pokemon!!$"
 
 Aio_Intro::
 	lockall
-	setvar VAR_TEMP_7, 1
+	setvar VAR_TARCINTRO_STATE, 1
 	msgbox Aio_Intro_Text_0
 	releaseall
 	return
@@ -434,6 +451,9 @@ Aio_Movement:
 	walk_right
 	walk_right
 	walk_right
+	step_end
+Check_Movement:
+	walk_down
 	step_end
 
 TriggerFinish::

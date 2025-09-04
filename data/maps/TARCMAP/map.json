@@ -29,8 +29,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROXANNE",
-      "x": 11,
-      "y": 42,
+      "x": 12,
+      "y": 41,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -363,7 +363,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "TARCMAPSHOP",
       "flag": "0"
     }
   ],
@@ -405,7 +405,7 @@
       "x": 9,
       "y": 48,
       "elevation": 0,
-      "var": "VAR_TEMP_7",
+      "var": "VAR_TARCINTRO_STATE",
       "var_value": "0",
       "script": "Aio_Intro"
     },
@@ -414,7 +414,7 @@
       "x": 8,
       "y": 49,
       "elevation": 0,
-      "var": "VAR_TEMP_7",
+      "var": "VAR_TARCINTRO_STATE",
       "var_value": "0",
       "script": "Aio_Intro"
     },
@@ -423,7 +423,7 @@
       "x": 10,
       "y": 49,
       "elevation": 0,
-      "var": "VAR_TEMP_7",
+      "var": "VAR_TARCINTRO_STATE",
       "var_value": "0",
       "script": "Aio_Intro"
     },
@@ -471,6 +471,33 @@
       "var": "VAR_ROUTE118_STATE",
       "var_value": "0",
       "script": "TARCFINISH"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TARCBALL_STATE",
+      "var_value": "0",
+      "script": "PokeCheck2"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TARCBALL_STATE",
+      "var_value": "0",
+      "script": "PokeCheck2"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TARCBALL_STATE",
+      "var_value": "0",
+      "script": "PokeCheck2"
     }
   ],
   "bg_events": [
