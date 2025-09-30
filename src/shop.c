@@ -1412,6 +1412,9 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
         if (MARTBP)
         maxQuantity = GetSwordTokens() / sShopData->totalCost;
     else
+        if (MARTMOVE)
+        maxQuantity = GetSwordTokens() / sShopData->totalCost;
+    else
         maxQuantity = GetMoney(&gSaveBlock1Ptr->money) / sShopData->totalCost;
 
     if (maxQuantity > MAX_BAG_ITEM_CAPACITY)
@@ -1518,6 +1521,12 @@ static void BuyMenuSubtractMoney(u8 taskId)
             SetSwordTokens(0);
         PrintSTBoxWithBorder(WIN_BP, 1, 13, GetSwordTokens());
     }
+    else if (MARTMOVE)
+    {
+        if(!RemoveSwordTokens(sShopData->totalCost))
+            SetSwordTokens(0);
+        PrintSTBoxWithBorder(WIN_BP, 1, 13, GetSwordTokens());
+    }    
     else
     {
         RemoveMoney(&gSaveBlock1Ptr->money, sShopData->totalCost);
