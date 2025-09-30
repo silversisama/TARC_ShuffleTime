@@ -617,8 +617,7 @@ static void CB2_InitBuyMenuAfterTutor(void)
     u8 taskId;
     if (gSpecialVar_Result == TRUE)
     {
-        gSaveBlock2Ptr->frontier.battlePoints -= gSpecialVar_0x8008;
-        gSpecialVar_0x8008 = 0;
+        RemoveSwordTokens(gSpecialVar_0x8008);
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
     switch (gMain.state)
@@ -1520,13 +1519,7 @@ static void BuyMenuSubtractMoney(u8 taskId)
         if(!RemoveSwordTokens(sShopData->totalCost))
             SetSwordTokens(0);
         PrintSTBoxWithBorder(WIN_BP, 1, 13, GetSwordTokens());
-    }
-    else if (MARTMOVE)
-    {
-        if(!RemoveSwordTokens(sShopData->totalCost))
-            SetSwordTokens(0);
-        PrintSTBoxWithBorder(WIN_BP, 1, 13, GetSwordTokens());
-    }    
+    } 
     else
     {
         RemoveMoney(&gSaveBlock1Ptr->money, sShopData->totalCost);
