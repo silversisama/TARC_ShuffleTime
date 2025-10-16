@@ -16,7 +16,14 @@ extern const u8 gText_ExpandedPlaceholder_Kyogre[];
 extern const u8 gText_ExpandedPlaceholder_Groudon[];
 extern const u8 gText_ExpandedPlaceholder_Brendan[];
 extern const u8 gText_ExpandedPlaceholder_May[];
-
+extern const u8 gText_BattleSpeed1x[];
+extern const u8 gText_BattleSpeed2x[];
+extern const u8 gText_BattleSpeed3x[];
+extern const u8 gText_BattleSpeed4x[];
+extern const u8 gText_SmallDot[];
+extern const u8 gText_LargeDot[];
+extern const u8 gText_PageNav[];
+extern const u8 gText_BattleSpeed[];
 extern const u8 gText_FromSpace[];
 
 extern const u8 gText_Lv50[];

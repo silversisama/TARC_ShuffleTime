@@ -16,6 +16,8 @@ TARCSTART::
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	setflag FLAG_SYS_B_DASH	
 	setrespawn HEAL_LOCATION_TARCMAP
+	setvar VAR_PACIFIDLOG_TOWN_STATE, 0
+	setvar VAR_VERDANTURF_TOWN_STATE, 0
 	special EnableNationalPokedex	
 	return
 

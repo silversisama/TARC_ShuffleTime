@@ -331,6 +331,10 @@ void StartSendOutAnim(u32 battler, bool32 dontClearTransform, bool32 dontClearSu
 void Controller_WaitForString(u32 battler);
 void Controller_WaitForHealthBar(u32 battler);
 
+// Battle Speed Up (Credit to Pokabbie)
+u32 Rogue_GetBattleSpeedScale(bool32 forHealthbar);
+
+
 // handlers
 void BtlController_HandleGetMonData(u32 battler);
 void BtlController_HandleGetRawMonData(u32 battler);

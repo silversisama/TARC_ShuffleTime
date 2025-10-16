@@ -1098,7 +1098,14 @@ const u8 gEasyChatGroupName_Move1[] = _("MOVE 1");
 const u8 gEasyChatGroupName_Move2[] = _("MOVE 2");
 const u8 gEasyChatGroupName_TrendySaying[] = _("TRENDY SAYING");
 const u8 gEasyChatGroupName_Pokemon2[] = _("POKéMON2");
-
+const u8 gText_SmallDot[] = _("·");
+const u8 gText_LargeDot[] = _("{EMOJI_CIRCLE}");
+const u8 gText_PageNav[] = _("{L_BUTTON}{R_BUTTON} PAGE");
+const u8 gText_BattleSpeed[] = _("BATTLE SPEED");
+const u8 gText_BattleSpeed1x[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}1x");
+const u8 gText_BattleSpeed2x[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}2x");
+const u8 gText_BattleSpeed3x[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}3x");
+const u8 gText_BattleSpeed4x[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}4x");
 const u8 gText_ThreeQuestionMarks[] = _("???");
 const u8 gText_MaxHP[] = _("MAX. HP");
 const u8 gText_Attack[] = _("ATTACK");
