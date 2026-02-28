@@ -106,7 +106,7 @@ static const struct BgTemplate sRocketBgTemplate = {
     .bg = 1,
     .charBaseIndex = 0,
     .mapBaseIndex = 10,
-    .priority = 0,
+    .priority = 1,
     .baseTile = 0,
 };
 
@@ -114,7 +114,7 @@ static const struct BgTemplate sRocketTextBgTemplate = {
     .bg = 0,
     .charBaseIndex = 2,
     .mapBaseIndex = 31,
-    .priority = 1,
+    .priority = 0,
     .baseTile = 0,
 };
 
@@ -138,6 +138,13 @@ void TeamRocketIntro(void)
     CreateTask(Task_TeamRocket_Intro, 0);
 }
 
+static void VBlankCB_TRintro(void)
+{
+    LoadOam();
+    ProcessSpriteCopyRequests();
+    TransferPlttBuffer();
+}
+
 static void CB2_TRIntro(void)
 {
     RunTasks();
@@ -154,15 +161,18 @@ static void Task_TeamRocket_Intro(u8 taskId)
     switch(gTasks[taskId].data[3])
     {
     case 0:
+        SetVBlankCallback(NULL);
+        SetGpuReg(REG_OFFSET_DISPCNT, 0);
+        SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
+        SetGpuReg(REG_OFFSET_BG1VOFS, 0);
+        SetGpuReg(REG_OFFSET_BG1HOFS, 0);
+        ResetBgsAndClearDma3BusyFlags(0);
+        InitBgFromTemplate(&sRocketBgTemplate);
+        InitBgFromTemplate(&sRocketTextBgTemplate);
         ChangeBgX(0, 0, BG_COORD_SET);
         ChangeBgY(0, 0, BG_COORD_SET);
         ChangeBgX(1, 0, BG_COORD_SET);
         ChangeBgY(1, 0, BG_COORD_SET);
-        SetGpuReg(REG_OFFSET_DISPCNT, 0);
-        SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
-        ResetBgsAndClearDma3BusyFlags(0);
-        InitBgFromTemplate(&sRocketBgTemplate);
-        InitBgFromTemplate(&sRocketTextBgTemplate);
         InitWindows(sWindowTemplates);
         SetGpuReg(REG_OFFSET_WIN0H, 0);
         SetGpuReg(REG_OFFSET_WIN0V, 0);
@@ -171,7 +181,6 @@ static void Task_TeamRocket_Intro(u8 taskId)
         SetGpuReg(REG_OFFSET_BLDCNT, 0);
         SetGpuReg(REG_OFFSET_BLDALPHA, 0);
         SetGpuReg(REG_OFFSET_BLDY, 0);
-        SetGpuReg(REG_OFFSET_BG1VOFS, 0);
         CpuFill16(0, (void*)VRAM, VRAM_SIZE);
         LZ77UnCompVram(sTeamRocket1Tilemap, (void *)(BG_SCREEN_ADDR(10)));
         DeactivateAllTextPrinters();
@@ -182,12 +191,13 @@ static void Task_TeamRocket_Intro(u8 taskId)
         FreeAllSpritePalettes();
         ResetAllPicSprites();
         LoadPalette(GetOverworldTextboxPalettePtr(), BG_PLTT_ID(14), PLTT_SIZE_4BPP);
-        DrawStdFrameWithCustomTileAndPalette(0, FALSE, 0x2A8, 0xD);
         LoadUserWindowBorderGfx(0, 0x2A8, BG_PLTT_ID(13));
+        DrawStdFrameWithCustomTileAndPalette(0, TRUE, 0x2A8, 0xD);
         LoadPalette(sTeamRocketIntro1Pal, BG_PLTT_ID(0), PLTT_SIZEOF(16));
-        RocketIntro_ShowDialogueWindow(0, 1);
+        // RocketIntro_ShowDialogueWindow(0, 1);
         ShowBg(1);
         ShowBg(0);
+        SetVBlankCallback(VBlankCB_TRintro);
         gTasks[taskId].data[3]++;
         break;
     case 1:
@@ -215,7 +225,7 @@ static void Task_TeamRocket_Intro(u8 taskId)
         break;
     case 5:
         LoadPalette(sTeamRocketIntro3Pal, BG_PLTT_ID(0), PLTT_SIZEOF(16));
-        LZ77UnCompVram(sTeamRocket1Tilemap, (void *)(BG_SCREEN_ADDR(10)));        
+        LZ77UnCompVram(sTeamRocket1Tilemap, (void *)(BG_SCREEN_ADDR(10)));
         LZ77UnCompVram(sTeamRocket3Gfx, (void *)VRAM);
         FillWindowPixelBuffer(0, PIXEL_FILL(1));
         AddTextPrinterParameterized(0, FONT_NORMAL, gText_TRTo_Denounce_Evil, 0, 0, 0, NULL);
