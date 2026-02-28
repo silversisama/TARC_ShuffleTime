@@ -297,6 +297,14 @@ extern const u8 gText_Birch_AreYouReady[];
 
 extern const u8 gText_BirchInTrouble[];
 extern const u8 gText_ConfirmStarterChoice[];
+extern const u8 gText_TRProtect_The_World[];
+extern const u8 gText_TRUnite_The_People[];
+extern const u8 gText_TRTo_Denounce_Evil[];
+extern const u8 gText_TRTo_Extend_Reach[];
+extern const u8 gText_TRJessie[];
+extern const u8 gText_TRJames[];
+extern const u8 gText_TRBlast_Off[];
+extern const u8 gText_TRMeowth_Thats_Right[];
 
 // mystery event menu text
 extern const u8 gText_EventSafelyLoaded[];

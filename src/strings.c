@@ -169,6 +169,14 @@ const u8 gText_TheBattle[] = _("the battle");
 const u8 gText_ThePokemonList[] = _("the POKéMON LIST");
 const u8 gText_TheShop[] = _("the shop");
 const u8 gText_ThePC[] = _("the PC");
+const u8 gText_TRProtect_The_World[] = _("Prepare for trouble! And make it double!");
+const u8 gText_TRUnite_The_People[] = _("To protect the world from devastation!");
+const u8 gText_TRTo_Denounce_Evil[] = _("To unite all peoples within our nation!");
+const u8 gText_TRTo_Extend_Reach[] = _("To denounce the evils of truth and\nlove! To extend our reach to the stars\nabove!$");
+const u8 gText_TRJessie[] = _("Jessie!");
+const u8 gText_TRJames[] = _("James!");
+const u8 gText_TRBlast_Off[] = _("Team Rocket blasts off at the speed of\nlight! Surrender now, or prepare to\nfight!");
+const u8 gText_TRMeowth_Thats_Right[] = _("Meowth! That's right!");
 
 const u8 *const gBagMenu_ReturnToStrings[] =
 {

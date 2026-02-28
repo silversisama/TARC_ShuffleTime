@@ -28,6 +28,13 @@ TARCMAPFINISHTWOSTEP::
 	applymovement LOCALID_SHOPGUY, TARC_TwoStep
 	goto TARCFINISH
 
+TESTING::
+	lock
+	fadescreen FADE_TO_BLACK
+	callnative TeamRocketIntro
+	waitstate
+	return
+
 TARCMAPFINISHONESTEP::
 	lock
 	faceplayer
